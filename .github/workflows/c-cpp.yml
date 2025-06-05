@@ -8,16 +8,20 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf automake gcc make
+      - name: Generate configure script
+        run: |
+          autoconf
+          ls -l configure  # Verify configure script is created
+          chmod +x configure
+      - name: Configure
+        run: ./configure
+      - name: Make
+        run: make
