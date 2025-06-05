@@ -1,0 +1,6 @@
+AC_INIT([prime], [1.0], [example@example.com])
+AC_PREREQ([2.69])
+AC_CONFIG_FILES([Makefile])
+AC_PROG_CC
+AC_CHECK_LIB([m], [sqrt], [], [AC_MSG_ERROR([Math library (libm) not found])])
+AC_OUTPUT
