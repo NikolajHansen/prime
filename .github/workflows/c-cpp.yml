@@ -18,7 +18,7 @@ jobs:
           sudo apt-get install -y autoconf automake gcc make
       - name: Generate configure script
         run: |
-          autoconf
+          autoconf -o ./configure Makefile.ac
           ls -l configure  # Verify configure script is created
           chmod +x configure
       - name: Configure

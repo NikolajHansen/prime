@@ -1,2 +1,6 @@
 build/
 target/
+autom4te.cache/
+configure
+configure*
+Makefile
